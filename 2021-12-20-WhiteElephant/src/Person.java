@@ -1,4 +1,5 @@
-/**
+/** @Author Elizabeth Norman
+ *  Person class for white elephant game project
  *
  */
 
@@ -8,6 +9,7 @@ public class Person
     private String theirGift; //we want to keep track of the gift they brought, as they won't take it
     private Gift gift; //this is the gift they will walk home with
 
+
     public Person(String name, String gift)
     {
         this.name = name;
@@ -16,6 +18,7 @@ public class Person
 
     }
 
+    //a lot of getters and setters for the person's name and gift
     public String getTheirGift()
     {
         return theirGift;

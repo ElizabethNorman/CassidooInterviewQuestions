@@ -1,3 +1,7 @@
+/** @author Elizabeth Norman
+ * The white elephant class is where the party game is done
+ * 
+ */
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -5,7 +9,7 @@ public class WhiteElephant
 {
 
     private ArrayList<Person> people;
-    private ArrayList<Gift> gifts;
+    private ArrayList<Gift> gifts; //keeps track of the gifts to be picked up during initial distribution
     private int count;
     private boolean gameStarted;
 
@@ -25,13 +29,10 @@ public class WhiteElephant
         count++;
     }
 
-    public void steal(Person taker, Person taken)
-    {
-        Gift temp = taker.getGift();
-        taker.setGift(taken.getGift());
-        taken.setGift(temp);
-    }
 
+    /* To reset the stolen boolean for the next round of trading
+     * 
+     */
     public void resetRound()
     {
         for(Gift gift : gifts)
@@ -41,7 +42,8 @@ public class WhiteElephant
     }
 
     /* Below I demonstrate how to handle what to do if a person gets their original gift
-       While we could add them in here, I
+       While we could add them in here, I really didn't think it necessary to code again, the person
+       should know not to grab their own gift 
 
      */
     public void trade(Person taker, Person taken)
@@ -73,7 +75,7 @@ public class WhiteElephant
      */
     public void getFirstGiftPerson(Person person)
     {
-        if(!gameStarted)
+        if(!gameStarted) //if the game has begun, then people cannot get their first gifts
         {
             Random r = new Random();
             Gift g = gifts.get(r.nextInt(gifts.size()));
@@ -87,6 +89,7 @@ public class WhiteElephant
             return;
         }
 
+        //recursive call to get a person a gift that was not the one they brought
         if (person.getGift().equals(person.getTheirGift()))
         {
             gifts.add(person.getGift());

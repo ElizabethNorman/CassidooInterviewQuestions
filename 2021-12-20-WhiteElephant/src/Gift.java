@@ -1,3 +1,6 @@
+/** @author Elizabeth Norman
+ *  Gift class contains the data of the gifts people brought to the party 
+ */
 public class Gift
 {
     private String gift;
@@ -28,8 +31,5 @@ public class Gift
     {
         return gift;
     }
-
-
-
 
 }
