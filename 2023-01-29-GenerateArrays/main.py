@@ -21,6 +21,7 @@ def generate_arrays(count):
         return
 
     a = [[0]*count for i in range(count)]
+
     for x in range(count):
         t = x + 1
         temp = [0] * t
